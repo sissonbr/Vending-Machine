@@ -3,8 +3,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class VendingMachineKata {
-	static double coinTotal = 0;
-	static String input;
+	private static double coinTotal = 0;
+	private static String input;
 		
 	public static void main(String[] args) {
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -45,7 +45,7 @@ public class VendingMachineKata {
 		coinTotal += coin;
 	}
 	
-	static void selectProduct(String product)
+	private static void selectProduct(String product)
 	{
 		switch(product)
 		{
@@ -82,7 +82,7 @@ public class VendingMachineKata {
 		}
 	}
 	
-	static void makeChange()
+	private static void makeChange()
 	{
 		if (coinTotal > 0)
 		{
@@ -91,19 +91,19 @@ public class VendingMachineKata {
 		}
 	}
 	
-	static void returnCoins()
+	private static void returnCoins()
 	{
 		System.out.println("Coin return amount: " + coinTotal);
 		coinTotal = 0;
 	}
 	
-	void soldOut()
+	private void soldOut()
 	{
 		System.out.println("SOLD OUT");
 		System.out.println(coinTotal);
 	}
 	
-	void exactChangeOnly()
+	private void exactChangeOnly()
 	{
 		System.out.println("EXACT CHANGE ONLY");
 	}
