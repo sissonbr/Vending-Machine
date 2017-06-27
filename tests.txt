@@ -1,0 +1,23 @@
+INSERT COIN nickel
+INSERT COIN dime
+INSERT COIN quarter
+INSERT COIN cola
+$1.0
+INSERT COIN quarter
+INSERT COIN cola
+$1.0
+INSERT COIN quarter
+INSERT COIN cola
+$1.0
+INSERT COIN chips
+chips dispensed, THANK YOU
+Coin return amount: 0.4
+INSERT COIN quarter
+INSERT COIN candy
+$0.65
+INSERT COIN quarter
+INSERT COIN dime
+INSERT COIN nickel
+INSERT COIN candy
+candy dispensed, THANK YOU
+INSERT COIN 
