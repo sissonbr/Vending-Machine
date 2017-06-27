@@ -5,6 +5,12 @@ import java.io.InputStreamReader;
 public class VendingMachineKata {
 	private static double coinTotal = 0;
 	private static String input;
+	private final static double nickel = 0.05;
+	private final static double dime = 0.10;
+	private final static double quarter = 0.25;
+	private final static double colaPrice = 1.00;
+	private final static double chipsPrice = 0.50;
+	private final static double candyPrice = 0.65;
 		
 	public static void main(String[] args) {
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -21,11 +27,11 @@ public class VendingMachineKata {
 			
 			switch (input)
 			{
-				case "nickel": acceptCoins(0.05);
+				case "nickel": acceptCoins(nickel);
 				break;
-				case "dime": acceptCoins(0.10);
+				case "dime": acceptCoins(dime);
 				break;
-				case "quarter": acceptCoins(0.25);
+				case "quarter": acceptCoins(quarter);
 				break;
 				case "cola": selectProduct("cola");
 				break;
@@ -50,39 +56,30 @@ public class VendingMachineKata {
 		switch(product)
 		{
 			case "cola":
-				if (coinTotal >= 1.00)
-				{
-					coinTotal -= 1.00;
-					System.out.println("cola dispensed, THANK YOU");
-					makeChange();
-				}	
-				else
-					System.out.println("$1.00");			
+				dispenseProduct(colaPrice, "cola");			
 				break;
 			case "chips":
-				if (coinTotal >= 0.50)
-				{
-					coinTotal -= 0.50;
-					System.out.println("chips dispensed, THANK YOU");
-					makeChange();
-				}	
-				else
-					System.out.println("$0.50");			
+				dispenseProduct(chipsPrice, "chips");			
 				break;				
 			case "candy":
-				if (coinTotal >= 0.65)
-				{
-					coinTotal -= 0.65;
-					System.out.println("candy dispensed, THANK YOU");
-					makeChange();
-				}	
-				else
-					System.out.println("$0.65");			
+				dispenseProduct(candyPrice, "candy");			
 				break;
 		}
 	}
 	
-	private static void makeChange()
+	private static void dispenseProduct(double price, String productName)
+	{
+		if (coinTotal >= price)
+		{
+			coinTotal -= price;
+			System.out.println(productName + " dispensed, THANK YOU");
+			makeChange();
+		}	
+		else
+			System.out.println("$"+price);			
+	}
+	
+		private static void makeChange()
 	{
 		if (coinTotal > 0)
 		{
